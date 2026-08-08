@@ -5,8 +5,8 @@ Full Stack Developer Intern assignment. This is an original interpretation
 of the page's structure and messaging, not a pixel-for-pixel or code copy of
 the live site.
 
-**Live demo:** _add your Vercel URL here after deploying_
-**Repo:** _add your GitHub URL here_
+**Live demo:** https://accredian-enterprise-landing-page-a4cai5l7x-sahana20.vercel.app
+**Repo:** https://github.com/sahana-cs-dev/accredian-enterprise-landing-page.git
 
 ---
 
