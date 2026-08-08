@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/500-italic.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/fraunces/700.css";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+:root {
+  /* Ledger & Signal palette */
+  --paper: #F2F3EE;       /* cool off-white background */
+  --paper-dim: #E7E9E1;   /* section alt background */
+  --ink: #171B1A;         /* near-black ink for text/dark sections */
+  --ink-soft: #3C4442;    /* secondary text on paper */
+  --line: #D6D9CF;        /* hairline rule color */
+  --signal: #0E6B57;      /* deep ledger-green signal accent */
+  --signal-soft: #E4EEE9; /* tinted signal background */
+  --amber: #C98A2B;       /* secondary accent for data/highlights */
+  --cream: #F7F5EE;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
+  --color-amber: var(--amber);
+  --color-cream: var(--cream);
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--paper);
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ledger index rail marker */
+.rail-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+}
+.rail-dot.active {
+  background: var(--signal);
+}
+
+/* Ticker animation for the ledger strip */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-scroll 32s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
